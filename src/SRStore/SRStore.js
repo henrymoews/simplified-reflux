@@ -74,7 +74,7 @@ class SRStore {
       }
       this.state[key] = dict[key]
     })
-    listenersToCall.forEach(listener => console.log(listener))
+    listenersToCall.forEach(listener => listener())
     componentsToUpdate.forEach(componentAndState => {
       componentAndState.component.setState(componentAndState.state)
     })
