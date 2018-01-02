@@ -38,7 +38,11 @@ A derived class automatically registers for changes of the `stateKeys` variables
 which are put to `this.state.*`.
 
 ## Update Values
-Updating values is easy:
+Updating a single value:
+
+    Store.setValue(key, value)
+
+If you want to change more than one value at once use `setValues` as each call updates the state of all subscribed components:
     
     Store.setValues(dict)
     
@@ -47,6 +51,23 @@ For example:
     Store.setValues({
         language: 'English'
     })
+    
+## Initial values
+If your store should have some default values write a class deriving from `RSStore` and return the state in `initialState()`:
+
+    import {SRStore} from 'simplified-reflux'
+     
+    class Store extends SRStore {
+        
+        initialState() {
+            return {
+                language: 'German'
+            }
+        )
+        
+    }
+     
+    export default new Store()    
 
 ## Usage outside of React components
 
@@ -62,6 +83,30 @@ while `key` is an array and `listener` is a function without params. To retrieve
 Don't forget to remove your listener:
     
     Store.removeListener(keys, listener)
+    
+## What if I need Actions?
+Even though no actions are provided (that is 'simplified' part) you may add some action-like functions in your own Store class and call `setValues` from there.
+
+Example:    
+    
+        import {SRStore} from 'simplified-reflux'
+             
+            class Store extends SRStore {
+                
+                setLanguage (lang) {
+                
+                    // do whatever you want
+                    const langToSave = yourSpecialTransformation(lang)
+                
+                    // store
+                    this.setValues({
+                        language: langToSave
+                    })
+                )
+                
+            }
+             
+            export default new Store()  
     
 # License
 

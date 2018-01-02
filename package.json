@@ -1,6 +1,6 @@
 {
   "name": "simplified-reflux",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simplified version of Reflux without actions",
   "main": "lib/index.js",
   "directories": {
