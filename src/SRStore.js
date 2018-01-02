@@ -20,18 +20,16 @@ class SRStore {
   }
 
   addListenerComponent (keys, component) {
+    const state = {}
     keys.forEach(key => {
       if (!this.components[key]) {
         this.components[key] = []
       }
       this.components[key].push(component)
 
-      if (this.state[key]) {
-        const state = {}
-        state[key] = this.state[key]
-        component.setState(state)
-      }
+      state[key] = this.state[key]
     })
+    component.setState(state)
   }
 
   removeListener (keys, listener) {
@@ -50,6 +48,12 @@ class SRStore {
         this.components[key].splice(index, 1)
       }
     })
+  }
+
+  setValue (key, value) {
+    const dict = {}
+    dict[key] = value
+    this.setValues(dict)
   }
 
   setValues (dict) {

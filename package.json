@@ -16,6 +16,7 @@
     "url": "git+https://github.com/henrymoews/simplified-reflux.git"
   },
   "keywords": [
+    "alternative",
     "reflux",
     "react",
     "store"

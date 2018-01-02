@@ -1,2 +1,2 @@
-export { default as SRComponent } from './SRComponent/SRComponent';
-export { default as SRStore } from './SRStore/SRStore';
+export { default as SRComponent } from './SRComponent';
+export { default as SRStore } from './SRStore';
