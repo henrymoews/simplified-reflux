@@ -53,7 +53,7 @@ For example:
     })
     
 ## Initial values
-If your store should have some default values write a class deriving from `RSStore` and return the state in `initialState()`:
+If your store should have some default values write a class deriving from `SRStore` and return the state in `initialState()`:
 
     import {SRStore} from 'simplified-reflux'
      
