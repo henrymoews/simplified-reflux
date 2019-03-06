@@ -61,7 +61,7 @@ class SRStore {
     const componentsToUpdate = []
     Object.keys(dict).forEach(key => {
       if (this.listeners[key] && listenersToCall.indexOf(this.listeners[key]) < 0) {
-        listenersToCall.push(this.listeners[key])
+        listenersToCall.push(...this.listeners[key])
       }
       if (this.components[key]) {
         this.components[key].forEach(component => {
